@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRest", "ApiRest\ApiRest.csproj", "{57F0D063-2B37-458E-A8EA-A6622E81CE1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRest.Tests", "ApiRest.Tests\ApiRest.Tests.csproj", "{385807FB-8B26-4844-98DE-CCAA10808566}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57F0D063-2B37-458E-A8EA-A6622E81CE1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F0D063-2B37-458E-A8EA-A6622E81CE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F0D063-2B37-458E-A8EA-A6622E81CE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F0D063-2B37-458E-A8EA-A6622E81CE1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385807FB-8B26-4844-98DE-CCAA10808566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385807FB-8B26-4844-98DE-CCAA10808566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385807FB-8B26-4844-98DE-CCAA10808566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385807FB-8B26-4844-98DE-CCAA10808566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {890F936C-B87A-4758-9DC7-68F2474FAB21}
+	EndGlobalSection
+EndGlobal
