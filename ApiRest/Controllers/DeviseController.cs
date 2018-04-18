@@ -51,13 +51,40 @@ namespace ApiRest.Controllers
         }
 
         // PUT: api/Devise/5
-        public void Put(int id, [FromBody]string value)
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Put(int id, Devise devise)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if(id != devise.Id)
+            {
+                return BadRequest();
+            }
+            int index = devises.FindIndex((d) => d.Id == id);
+            if (index < 0)
+            {
+                return NotFound();
+            }
+            devises[index] = devise;
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // DELETE: api/Devise/5
-        public void Delete(int id)
+        [ResponseType(typeof(Devise))]
+        public IHttpActionResult Delete(int id)
         {
+            Devise devise = (from d in devises where d.Id == id select d).FirstOrDefault();
+            if (devise == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                devises.Remove(devise);
+                return Ok(devise);
+            }
         }
     }
 }
