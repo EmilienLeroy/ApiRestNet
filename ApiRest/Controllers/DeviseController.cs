@@ -39,8 +39,15 @@ namespace ApiRest.Controllers
         }
 
         // POST: api/Devise
-        public void Post([FromBody]string value)
+        [ResponseType(typeof(Devise))]
+        public IHttpActionResult Post(Devise devise)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            devises.Add(devise);
+            return CreatedAtRoute("DefaultApi", new { id = devise.Id }, devise);
         }
 
         // PUT: api/Devise/5
