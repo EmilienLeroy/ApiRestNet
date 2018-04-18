@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace ApiRest.Controllers
 {
@@ -26,9 +27,15 @@ namespace ApiRest.Controllers
         }
 
         // GET: api/Devise/5
-        public string Get(int id)
+        [ResponseType(typeof(Devise))]
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            Devise devise = (from d in devises where d.Id == id select d).FirstOrDefault();
+            if(devise == null)
+            {
+                return NotFound();
+            }
+            return Ok(devise);
         }
 
         // POST: api/Devise
