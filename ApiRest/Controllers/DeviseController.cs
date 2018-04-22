@@ -15,6 +15,7 @@ namespace ApiRest.Controllers
 
         public DeviseController()
         {
+            //Create a list of devise because i don't have a database for the moment
             devises.Add(new Devise() { Id = 1, Nom = "Dollar", Taux =1.08 });
             devises.Add(new Devise() { Id = 2, Nom = "Franc Suisse", Taux = 1.07 });
             devises.Add(new Devise() { Id = 3, Nom = "Yen", Taux = 120 });
@@ -23,6 +24,7 @@ namespace ApiRest.Controllers
         // GET: api/Devise
         public IEnumerable<Devise> Get()
         {
+            //return all devises
             return devises;
         }
 
@@ -30,11 +32,14 @@ namespace ApiRest.Controllers
         [ResponseType(typeof(Devise))]
         public IHttpActionResult Get(int id)
         {
+            //find the devise into the lise
             Devise devise = (from d in devises where d.Id == id select d).FirstOrDefault();
+            //if null return 404
             if(devise == null)
             {
                 return NotFound();
             }
+            //else return status 200 with the devise
             return Ok(devise);
         }
 
@@ -42,10 +47,12 @@ namespace ApiRest.Controllers
         [ResponseType(typeof(Devise))]
         public IHttpActionResult Post(Devise devise)
         {
+            //if the model post is not corect
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            // add the devise to the list
             devises.Add(devise);
             return CreatedAtRoute("DefaultApi", new { id = devise.Id }, devise);
         }
